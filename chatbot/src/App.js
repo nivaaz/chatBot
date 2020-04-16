@@ -9,7 +9,7 @@ function App() {
       <h1>Chat App</h1>
       </header>
       <body>
-        <h2> chat ah2p body</h2>
+        <h2> chat app body</h2>
         <Convo/>
       </body>
       <footer>

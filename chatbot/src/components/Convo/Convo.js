@@ -1,6 +1,7 @@
 import React from "react"
 import { Question } from "../Question/Question";
 import { Response } from "../Response/Response";
+import { CustomResponse } from "../CustomResponse/CustomResponse";
 import convo from '../../data/convo.json';
 
 export class Convo extends React.Component {
@@ -14,10 +15,16 @@ export class Convo extends React.Component {
             <Question 
                 question={key.question}
                 questionIndex = {index}
+                currentQuestion = {this.state.currentQuestion}
             />
             <Response
                 responses = {key.responses}
                 questionIndex = {index}
+            />
+            <CustomResponse
+                questionIndex = {index}
+                answersArray = {this.state.answers}
+                customResponse = {key.customResponse}
             />
             </>)
         })
@@ -27,7 +34,7 @@ export class Convo extends React.Component {
     }
     render (){
         return (<>
-        <h1> Convo Component</h1>
+        <h3> Convo Component</h3>
         {this.renderConversation()}
         </>)
     }

@@ -1,6 +1,10 @@
 import React from "react"
 
 export const CustomResponse = (props) =>{
-    
-    return (<p> {props.customResponse} </p>)
+    if (props.questionIndex < props.currentQuestion){
+        if (props.answers[props.questionIndex] == 1){
+            return <p> {props.customResponse}</p>
+        }
+    }
+    return <> </>
 }

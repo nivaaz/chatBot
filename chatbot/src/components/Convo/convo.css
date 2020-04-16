@@ -1,7 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+    font-family: 'Lato', sans-serif;
+}
 .convo-container{
     width: 90vw;
     display: grid;
+    margin: 0 auto;
 }
+
 .bubble{
     padding: 1em;
     color: #6c5ce7;

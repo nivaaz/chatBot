@@ -2,35 +2,31 @@ import React from "react"
 import './response.css';
 
 export const Response = (props) =>{
+    const renderBubble = (_value, _name,_key, isSelected)=>{
+      return (
+            <button 
+            value={_value} 
+            name ={_name}
+            className = {isSelected
+                ? "selected s bubble"
+                : "s bubble"}
+            onClick = {props.handleResponseClick}
+            key = {_key}
+            > 
+            {_key} 
+            </button>)
+    }
     if (props.questionIndex < props.currentQuestion ){
         const resp =  (props.responses.map((key, index)=>{
-            return (
-            <button 
-            value={index} 
-            name ={props.questionIndex}
-            className = {(props.answers[props.questionIndex] === index)
-                        ? "selected s bubble"
-                        : "s bubble"}
-            onClick = {props.handleResponseClick}
-            key = {index}
-            > 
-            {key} 
-            </button>)
+            const isSelected = (props.answers[props.questionIndex] === index);
+            return renderBubble(index,props.questionIndex,key, isSelected);
         }))
         return <div className="response-container"> {resp} </div>
     } else if (props.questionIndex === props.currentQuestion){
         const resp = (props.responses.map((key, index)=>{
-           return  (<button 
-            className = "s bubble"
-            value={index} 
-            key = {index}
-            name ={props.questionIndex}
-            onClick = {props.handleResponseClick}
-            > 
-            {key} </button>)
+           return  renderBubble(index,props.questionIndex,key, false);
         }))
         return <div className="response-container"> {resp} </div>
-
     }
     return (<> </>)
 }

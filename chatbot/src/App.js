@@ -8,8 +8,8 @@ function App() {
       <header className="App-header">
       <h1>Chat App</h1>
       </header>
+      <h2> Nivaaz has joined the chat.</h2>
         <Convo/>
-
       <footer>
         <p> Built by Nivaaz Sehmbhi, 2020</p>
       </footer>

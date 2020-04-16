@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import {Convo} from "./components/Convo/Convo";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       </header>
       <body>
         <h2> chat ah2p body</h2>
+        <Convo/>
       </body>
       <footer>
         <p> footer of app</p>

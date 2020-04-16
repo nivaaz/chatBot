@@ -1,0 +1,14 @@
+.response-container{
+    text-align: -webkit-right;
+}
+button.selected.s.bubble{
+    color: white;
+    background: #6c5ce7;
+}
+.s.bubble{
+    color: white;
+    background: #a29bfe;
+}
+.s.bubble:hover{
+    box-shadow: 0px 0px 15px 0px #6c5ce7b0;
+}

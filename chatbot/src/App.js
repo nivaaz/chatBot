@@ -8,12 +8,10 @@ function App() {
       <header className="App-header">
       <h1>Chat App</h1>
       </header>
-
-        <h2> chat app body</h2>
         <Convo/>
 
       <footer>
-        <p> footer of app</p>
+        <p> Built by Nivaaz Sehmbhi, 2020</p>
       </footer>
     </div>
   );

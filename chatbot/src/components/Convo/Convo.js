@@ -3,6 +3,7 @@ import { Question } from "../Question/Question";
 import { Response } from "../Response/Response";
 import { CustomResponse } from "../CustomResponse/CustomResponse";
 import convo from '../../data/convo.json';
+import "./convo.css";
 
 export class Convo extends React.Component {
     state = {
@@ -10,9 +11,6 @@ export class Convo extends React.Component {
         answers: []
     };
     onClickResponse = (e)=>{
-
-        console.log(e.target.value, "value")
-        console.log(e.target.name, "name")
         const questionIndex = Number(e.target.name);
         const answerResult = Number(e.target.value);
         let ans = this.state.answers;
@@ -53,7 +51,6 @@ export class Convo extends React.Component {
     }
     render (){
         return (<>
-        <h3> Convo Component</h3>
         {this.renderConversation()}
         </>)
     }

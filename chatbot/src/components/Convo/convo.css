@@ -1,0 +1,14 @@
+.convo-container{
+    width: 90vw;
+    display: grid;
+}
+.bubble{
+    padding: 1em;
+    color: #6c5ce7;
+    margin: none;
+    width: fit-content;
+    border: none;
+    border-radius: 2em;
+    background: whitesmoke;
+    font-size: 12pt;
+}

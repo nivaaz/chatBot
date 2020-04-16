@@ -8,10 +8,10 @@ function App() {
       <header className="App-header">
       <h1>Chat App</h1>
       </header>
-      <body>
+
         <h2> chat app body</h2>
         <Convo/>
-      </body>
+
       <footer>
         <p> footer of app</p>
       </footer>

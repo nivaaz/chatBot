@@ -1,5 +1,5 @@
 import React from "react"
 
-export const Response = () =>{
-    return (<p> Response Component </p>)
+export const Response = (props) =>{
+    return (<p> {props.responses} </p>)
 }

@@ -1,6 +1,7 @@
 import React from "react"
 
 
-export const Question = () =>{
-    return (<p> Question Component </p>)
+export const Question = (props) =>{
+    
+    return (<p> {props.question} </p>)
 }

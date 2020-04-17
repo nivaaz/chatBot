@@ -1,5 +1,4 @@
 import React from "react"
-import './customResponse.css';
 
 export const CustomResponse = (props) => {
     console.log(props.questionIndex, props.currentQuestion)

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Convo} from "./components/Convo/Convo";
+import {Convo} from "./components/Convo/Convo.tsx";
 
 function App() {
   return (

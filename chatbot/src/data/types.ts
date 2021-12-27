@@ -1,6 +1,8 @@
 export enum QuestionId {
     "INTRO",
     "PRODUCT_SELECT",
+    "FINAL",
+    'LOADING',
 }
 
 export enum ResponseId {
@@ -11,13 +13,12 @@ export enum ResponseId {
     "PRODUCT_SELECT_2",
 }
 
-
 export type Question =  {
     question: string;
-    responseOptions: ResponseId[];
+    responseOptions?: ResponseId[];
 }
 
 export type Response =  {
     response: string;
-    followUpQuestionId?: QuestionId;
+    followUpQuestionId: QuestionId;
 }

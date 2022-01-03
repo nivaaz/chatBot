@@ -1,7 +1,9 @@
+import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import React, { ReactElement, useEffect, useRef, useState } from "react";
+import { additionalContent } from "../../data/additionalContent";
 import { questions } from "../../data/questions";
 import { responses } from "../../data/responses";
-import { QuestionId, ResponseId } from "../../data/types";
+import { AdditionalContentId, QuestionId, ResponseId } from "../../data/types";
 import "./convo.css";
 
 export const Convo = (): ReactElement => {
@@ -32,7 +34,7 @@ export const Convo = (): ReactElement => {
   const convoRef = useRef<HTMLInputElement>(null);
   const executeScroll = () => {
     if (convoRef) {
-      convoRef.current?.scrollIntoView({ behavior: "smooth" });
+      convoRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
     }
   };
 
@@ -43,6 +45,7 @@ export const Convo = (): ReactElement => {
         currentIndex={currentIndex}
         id={questionId}
         handleClick={handleOnClickResponse}
+        responses={userResponses}
       />
     ) : (
       <></>
@@ -50,9 +53,10 @@ export const Convo = (): ReactElement => {
   });
 
   return (
-    <div ref={convoRef} className="convo-container">
-      {showQuestions}
-    </div>
+    <>
+      <div className="convo-container">{showQuestions}</div>
+      <div ref={convoRef}></div>
+    </>
   );
 };
 
@@ -60,9 +64,11 @@ const QuestionComponent = ({
   currentIndex,
   id,
   handleClick,
+  responses,
 }: {
   currentIndex: number;
   id: QuestionId;
+  responses: ResponseId[];
   handleClick: (index: number, responseId: ResponseId) => void;
 }): ReactElement => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -75,37 +81,79 @@ const QuestionComponent = ({
   if (isLoading) {
     return <Loading />;
   }
+
   const currentQuestionData = questions[id];
+
   const theResponses =
     currentQuestionData.responseOptions &&
     currentQuestionData.responseOptions.map((item) => (
       <ResponseComponent
         id={item}
         key={item}
+        currentResponseId={responses[currentIndex]}
         onClick={() => handleClick(currentIndex, item)}
       />
     ));
 
+  const showAddtionalContent =
+    currentQuestionData?.additonalContent &&
+    currentQuestionData?.additonalContent?.length !== 0;
+
   return (
     <>
-      <div className="bubble"> {currentQuestionData.question} </div>
+       {currentQuestionData.question.map(q =>(<div className="bubble">{q}</div>))} 
+      {showAddtionalContent && (
+        <div className="bubble">
+           <AdditionalContentComponent contentIds={currentQuestionData.additonalContent}/>
+        </div>
+      )}
       <div className="response-container">{theResponses} </div>
     </>
   );
 };
 
+const AdditionalContentComponent = ({
+  contentIds,
+}: {
+  contentIds?: AdditionalContentId[];
+}) => {
+  const renderedContent =
+    contentIds && contentIds?.length < 0 ? (
+      <> </>
+    ) : (
+      contentIds?.map((id) => {
+        const { alt, link, type } = additionalContent[id] ;
+        if (type === "image") {
+          return <img src={link} alt={alt} />;
+        } else if (type === "link") {
+          return <LinkPreview url={link} width={"300px"}/>;
+        } else if (type === "video") {
+          return <LinkPreview url={link} width={"300px"}/>;
+        }
+        return <> </>;
+      })
+    );
+  return <> {renderedContent}</>;
+};
+
 const ResponseComponent = ({
   id,
   onClick,
+  currentResponseId,
 }: {
   id: ResponseId;
   onClick: () => void;
+  currentResponseId?: ResponseId;
 }): ReactElement => {
-  const theResponse = responses[id];
+  const {response, additonalContent} = responses[id];
+  const styles = currentResponseId === id ? "selected s bubble" : "s bubble";
   return (
     <>
-      <button className="s bubble" onClick={onClick}>
-        {theResponse.response}{" "}
+      <button className={styles} onClick={onClick}>
+        {response}
+        {additonalContent && <div className="addtionalContentResponse">
+        <AdditionalContentComponent contentIds={additonalContent}/>     
+      </div>}
       </button>
     </>
   );

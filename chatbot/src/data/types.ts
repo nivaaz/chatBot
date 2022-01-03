@@ -2,7 +2,6 @@ export enum QuestionId {
     "INTRO",
     "PRODUCT_SELECT",
     "FINAL",
-    'LOADING',
 }
 
 export enum ResponseId {
@@ -13,12 +12,27 @@ export enum ResponseId {
     "PRODUCT_SELECT_2",
 }
 
-export type Question =  {
-    question: string;
-    responseOptions?: ResponseId[];
+export enum AdditionalContentId {
+    "DOG_1",
+    "DOG_2",
+    "LINK_1",
+    "VIDEO_1"
 }
 
-export type Response =  {
+export type Question = {
+    question: string[];
+    responseOptions?: ResponseId[];
+    additonalContent?: AdditionalContentId[];
+}
+
+export type Response = {
     response: string;
     followUpQuestionId: QuestionId;
+    additonalContent?: AdditionalContentId[];
+}
+
+export type AdditionalContent = {
+    type: 'image' | 'link' | 'video',
+    link: string,
+    alt: string,
 }

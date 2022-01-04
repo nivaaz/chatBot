@@ -14,6 +14,6 @@ export const questions: Record<QuestionId, Question> = {
     },
     [QuestionId.FINAL] : {
         question: ['Spicy', 'Thanks for chatting with me! Time for some food.'],
-        additonalContent: [AdditionalContentId.VIDEO_1],
+        additonalContent: [AdditionalContentId.YOUTUBE_1],
     },
 }

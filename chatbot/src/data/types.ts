@@ -16,7 +16,7 @@ export enum AdditionalContentId {
     "DOG_1",
     "DOG_2",
     "LINK_1",
-    "VIDEO_1"
+    "YOUTUBE_1"
 }
 
 export type Question = {
@@ -32,7 +32,7 @@ export type Response = {
 }
 
 export type AdditionalContent = {
-    type: 'image' | 'link' | 'video',
-    link: string,
+    type: 'image' | 'link' | 'youtube',
+    link: string, // this would be the youtube embedded id for youtube
     alt: string,
 }

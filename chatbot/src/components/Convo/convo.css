@@ -26,6 +26,10 @@
 .addtionalContentResponse{
   padding-top: 8px;
 }
+.image{
+  max-width: 250px;
+}
+
 button.selected.s.bubble{
     color: white;
     background: #6c5ce7;

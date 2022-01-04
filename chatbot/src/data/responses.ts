@@ -9,7 +9,7 @@ export const responses: Record<ResponseId, Response> = {
     [ResponseId.INTRO_GOOD]: {
         response: 'Good thanks',
         followUpQuestionId: QuestionId.PRODUCT_SELECT,
-        additonalContent: [AdditionalContentId.VIDEO_1],
+        additonalContent: [AdditionalContentId.YOUTUBE_1],
     },
     [ResponseId.PRODUCT_SELECT_0]: {
         response: 'I purchased the round bathtub',

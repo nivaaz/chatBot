@@ -4,6 +4,7 @@ import { additionalContent } from "../../data/additionalContent";
 import { questions } from "../../data/questions";
 import { responses } from "../../data/responses";
 import { AdditionalContentId, QuestionId, ResponseId } from "../../data/types";
+import YoutubeEmbed from "../YoutubeEmbed";
 import "./convo.css";
 
 export const Convo = (): ReactElement => {
@@ -44,6 +45,7 @@ export const Convo = (): ReactElement => {
         key={currentIndex + questionId}
         currentIndex={currentIndex}
         id={questionId}
+        scrollToBottom={executeScroll}
         handleClick={handleOnClickResponse}
         responses={userResponses}
       />
@@ -65,16 +67,19 @@ const QuestionComponent = ({
   id,
   handleClick,
   responses,
+  scrollToBottom
 }: {
   currentIndex: number;
   id: QuestionId;
   responses: ResponseId[];
+  scrollToBottom: ()=> void;
   handleClick: (index: number, responseId: ResponseId) => void;
 }): ReactElement => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   useState(() => {
     setTimeout(() => {
       setIsLoading(false);
+      scrollToBottom()
     }, 3000);
   });
 
@@ -124,14 +129,15 @@ const AdditionalContentComponent = ({
       contentIds?.map((id) => {
         const { alt, link, type } = additionalContent[id] ;
         if (type === "image") {
-          return <img src={link} alt={alt} />;
+          return <img src={link} alt={alt} className="image"/>;
         } else if (type === "link") {
-          return <LinkPreview url={link} width={"300px"}/>;
-        } else if (type === "video") {
-          return <LinkPreview url={link} width={"300px"}/>;
+          return <LinkPreview url={link} height={"200px"}/>;
+        } else if (type === "youtube") {
+          return <YoutubeEmbed embedId="rokGy0huYEA"/>;
         }
         return <> </>;
       })
+      
     );
   return <> {renderedContent}</>;
 };

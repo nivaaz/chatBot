@@ -16,9 +16,9 @@ export const additionalContent: Record<AdditionalContentId, AdditionalContent>= 
         link: "https://www.npmjs.com/package/@dhaiwat10/react-link-preview",
         alt: 'link one'
     },
-    [AdditionalContentId.VIDEO_1]: {
-        type: 'video',
-        link: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+    [AdditionalContentId.YOUTUBE_1]: {
+        type: 'youtube',
+        link: "rokGy0huYEA",
         alt: 'link one'
     }
 }

@@ -1,15 +1,23 @@
 export enum QuestionId {
     "INTRO",
-    "PRODUCT_SELECT",
-    "FINAL",
+    "PRODUCT_VIDEO",
+    "PRODUCT_PHOTO",
+    "VIDEO_PRODUCT_SQUARE",
+    "VIDEO_PRODUCT_ROUND",
+    "PHOTO_PRODUCT_ROUND", 
+    "PHOTO_PRODUCT_SQUARE",
+    "END"
 }
 
 export enum ResponseId {
-    "INTRO_GOOD",
-    "INTRO_BAD",
-    "PRODUCT_SELECT_0",
-    "PRODUCT_SELECT_1",
-    "PRODUCT_SELECT_2",
+    "PHOTO",
+    "VIDEO",
+    "VIDEO_PRODUCT_SQUARE",
+    "VIDEO_PRODUCT_ROUND",
+    "PHOTO_PRODUCT_SQUARE",
+    "PHOTO_PRODUCT_ROUND",
+    "THANKU"
+
 }
 
 export enum AdditionalContentId {

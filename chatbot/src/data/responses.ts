@@ -1,26 +1,32 @@
 import { ResponseId, QuestionId, Response, AdditionalContentId } from "./types";
 
 export const responses: Record<ResponseId, Response> = {
-    [ResponseId.INTRO_BAD]: {
-        response: 'Not the bestest thanks',
-        followUpQuestionId: QuestionId.PRODUCT_SELECT,
-        additonalContent: [AdditionalContentId.LINK_1],
+    [ResponseId.PHOTO]: {
+        response: 'A Photo',
+        followUpQuestionId: QuestionId.PRODUCT_PHOTO,
     },
-    [ResponseId.INTRO_GOOD]: {
-        response: 'Good thanks',
-        followUpQuestionId: QuestionId.PRODUCT_SELECT,
-        additonalContent: [AdditionalContentId.YOUTUBE_1],
+    [ResponseId.VIDEO]: {
+        response: 'A Video',
+        followUpQuestionId: QuestionId.PRODUCT_VIDEO,
     },
-    [ResponseId.PRODUCT_SELECT_0]: {
-        response: 'I purchased the round bathtub',
-        followUpQuestionId: QuestionId.FINAL,
+    [ResponseId.VIDEO_PRODUCT_SQUARE]:{
+        response: 'The square one',
+        followUpQuestionId: QuestionId.VIDEO_PRODUCT_SQUARE,
     },
-    [ResponseId.PRODUCT_SELECT_1]: {
-        response: 'I purchased the square bathtub',
-        followUpQuestionId: QuestionId.FINAL,
+    [ResponseId.VIDEO_PRODUCT_ROUND]:{
+        response: 'The round one',
+        followUpQuestionId: QuestionId.VIDEO_PRODUCT_ROUND,
     },
-    [ResponseId.PRODUCT_SELECT_2]: {
-        response: 'I purchased the triangle bathtub',
-        followUpQuestionId: QuestionId.FINAL,
+    [ResponseId.PHOTO_PRODUCT_SQUARE]:{
+        response: 'The square one',
+        followUpQuestionId: QuestionId.PHOTO_PRODUCT_SQUARE,
     },
+    [ResponseId.PHOTO_PRODUCT_ROUND]:{
+        response: 'The round one',
+        followUpQuestionId: QuestionId.PHOTO_PRODUCT_ROUND,
+    },
+    [ResponseId.THANKU]:{
+        response: 'Thank you.',
+        followUpQuestionId: QuestionId.END,
+    }
 }

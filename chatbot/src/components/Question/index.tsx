@@ -3,6 +3,7 @@ import { questions } from "../../data/questions";
 import { QuestionId, ResponseId } from "../../data/types";
 import { AdditionalContentComponent } from "../AdditonalContent";
 import { ResponseComponent } from "../Response";
+import React from "react";
 
 export const QuestionComponent = ({
     currentIndex,
@@ -45,7 +46,7 @@ export const QuestionComponent = ({
     const showAddtionalContent =
       currentQuestionData?.additonalContent &&
       currentQuestionData?.additonalContent?.length !== 0;
-  
+    const hasResponses = theResponses?.length ;
     return (
       <>
          {currentQuestionData.question.map(q =>(<div className="bubble">{q}</div>))} 
@@ -54,7 +55,10 @@ export const QuestionComponent = ({
              <AdditionalContentComponent contentIds={currentQuestionData.additonalContent}/>
           </div>
         )}
-        <div className="response-container">{theResponses} </div>
+        
+        <div className="response-container">
+        {hasResponses && <p> Select a response. </p>}
+        {theResponses} </div>
       </>
     );
   };

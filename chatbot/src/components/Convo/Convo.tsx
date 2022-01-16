@@ -19,14 +19,14 @@ export const Convo = (): ReactElement => {
     responseId: ResponseId
   ): void => {
     // set selected response
-    const newUserResponses = [...userResponses];
-    newUserResponses[index] = responseId;
-    setuserResponses(newUserResponses);
-    // get follow up question
-    const newUserQuestions = [...userQuestions];
-    const nextQuestionId = responses[responseId].followUpQuestionId;
-    newUserQuestions[index + 1] = nextQuestionId ?? undefined;
-    setuserQuestions(newUserQuestions);
+      const newUserResponses = [...userResponses];
+      newUserResponses[index] = responseId;
+      setuserResponses(newUserResponses);
+      // get follow up question
+      const newUserQuestions = [...userQuestions];
+      const nextQuestionId = responses[responseId].followUpQuestionId;
+      newUserQuestions[index + 1] = nextQuestionId ?? undefined;
+      setuserQuestions(newUserQuestions);  
   };
 
   const convoEndRef = useRef<HTMLInputElement>(null);
@@ -36,10 +36,11 @@ export const Convo = (): ReactElement => {
     }
   };
 
-  const showQuestions = userQuestions.map((currentIndex, questionId) => {
-    return currentIndex !== undefined ? (
+  const showQuestions = userQuestions.map((questionId, currentIndex) => {
+    const theKey =  currentIndex + 'question';
+    return questionId !== undefined ? (
       <QuestionComponent
-        key={currentIndex + questionId}
+        key={theKey }
         currentIndex={currentIndex}
         id={questionId}
         scrollToBottom={executeScroll}

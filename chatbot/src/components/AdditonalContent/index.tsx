@@ -1,7 +1,9 @@
 import { LinkPreview } from "@dhaiwat10/react-link-preview";
 import { ReactElement } from "react";
+import React from "react";
 import { additionalContent } from "../../data/additionalContent";
 import { AdditionalContentId } from "../../data/types";
+import YoutubeEmbed from "../YoutubeEmbed";
 
 export const AdditionalContentComponent = ({
     contentIds,

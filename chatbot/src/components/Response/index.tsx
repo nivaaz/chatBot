@@ -2,6 +2,7 @@ import { ReactElement } from "react";
 import { responses } from "../../data/responses";
 import { ResponseId } from "../../data/types";
 import { AdditionalContentComponent } from "../AdditonalContent";
+import React from "react";
 
 
 export const ResponseComponent = ({

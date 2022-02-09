@@ -40,7 +40,7 @@ export const Convo = (): ReactElement => {
     const theKey =  currentIndex + 'question';
     return questionId !== undefined ? (
       <QuestionComponent
-        key={theKey }
+        key={theKey}
         currentIndex={currentIndex}
         id={questionId}
         scrollToBottom={executeScroll}

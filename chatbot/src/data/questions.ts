@@ -8,7 +8,7 @@ export const questions: Record<QuestionId, Question> = {
         responseOptions: [ResponseId.PHOTO, ResponseId.VIDEO]
     },
     [QuestionId.PRODUCT_PHOTO] : {
-        question: ['Nice.', "I like videos too."],
+        question: ['Nice.', "I like photos too."],
         responseOptions: [ResponseId.VIDEO_PRODUCT_SQUARE, ResponseId.VIDEO_PRODUCT_ROUND]
     },
     [QuestionId.PHOTO_PRODUCT_SQUARE] : {

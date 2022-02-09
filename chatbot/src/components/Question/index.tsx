@@ -49,7 +49,7 @@ export const QuestionComponent = ({
     const hasResponses = theResponses?.length ;
     return (
       <>
-         {currentQuestionData.question.map(q =>(<div className="bubble">{q}</div>))} 
+         {currentQuestionData.question.map(q =>(<div className="bubble" key={q}>{q}</div>))} 
         {showAddtionalContent && (
           <div className="bubble">
              <AdditionalContentComponent contentIds={currentQuestionData.additonalContent}/>

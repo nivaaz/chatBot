@@ -17,11 +17,11 @@ export const AdditionalContentComponent = ({
         contentIds?.map((id) => {
           const { alt, link, type } = additionalContent[id] ;
           if (type === "image") {
-            return <img src={link} alt={alt} className="image"/>;
+            return <img src={link} alt={alt} className="image" key={link + alt + type}/>;
           } else if (type === "link") {
-            return <LinkPreview url={link} height={"200px"}/>;
+            return <LinkPreview url={link} height={"200px"} key={link + alt + type}/>;
           } else if (type === "youtube") {
-            return <YoutubeEmbed embedId="rokGy0huYEA"/>;
+            return <YoutubeEmbed embedId="rokGy0huYEA" key={link + alt + type}/>;
           }
           return <> </>;
         })

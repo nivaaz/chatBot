@@ -4,6 +4,7 @@ import { QuestionId, ResponseId } from "../../data/types";
 import { AdditionalContentComponent } from "../AdditonalContent";
 import { ResponseComponent } from "../Response";
 import React from "react";
+import { Question } from "./question";
 
 export const QuestionComponent = ({
     currentIndex,
@@ -18,18 +19,9 @@ export const QuestionComponent = ({
     scrollToBottom: ()=> void;
     handleClick: (index: number, responseId: ResponseId) => void;
   }): ReactElement => {
-    const [isLoading, setIsLoading] = useState<boolean>(true);
-    useState(() => {
-      setTimeout(() => {
-        setIsLoading(false);
-        scrollToBottom()
-      }, 3000);
-    });
-  
-    if (isLoading) {
-      return <Loading />;
-    }
-  
+    
+      scrollToBottom()
+    
     const currentQuestionData = questions[id];
   
     const theResponses =
@@ -49,12 +41,11 @@ export const QuestionComponent = ({
     const hasResponses = theResponses?.length ;
     return (
       <>
-         {currentQuestionData.question.map(q =>(<div className="bubble" key={q}>{q}</div>))} 
-        {showAddtionalContent && (
-          <div className="bubble">
-             <AdditionalContentComponent contentIds={currentQuestionData.additonalContent}/>
-          </div>
-        )}
+        <Question questions = {currentQuestionData.question} additionalContent = {
+          showAddtionalContent && (
+               <AdditionalContentComponent contentIds={currentQuestionData.additonalContent}/>
+          )}/>
+        
         
         <div className="response-container">
         {hasResponses && <p> Select a response. </p>}
@@ -62,12 +53,4 @@ export const QuestionComponent = ({
       </>
     );
   };
-  
-const Loading = (): ReactElement => (
-    <div className="loading">
-      <div className="dot1"></div>
-      <div className="dot2"></div>
-      <div className="dot3"></div>
-    </div>
-  );
   

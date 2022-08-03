@@ -19,6 +19,12 @@
     background: whitesmoke;
     font-size: 12pt;
 }
+
+input{
+  padding: 1em;
+  font-size: 12pt;
+
+}
 /* responses */
 .response-container{
     text-align: -webkit-right;

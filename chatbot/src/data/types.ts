@@ -1,29 +1,29 @@
 
 export enum QuestionId {
-    "INTRO_0",
-    "INTRO_1",
-    "INTRO_2",
-    "INTRO",
-    "PRODUCT_VIDEO",
-    "PRODUCT_PHOTO",
-    "VIDEO_PRODUCT_SQUARE",
-    "VIDEO_PRODUCT_ROUND",
-    "PHOTO_PRODUCT_ROUND", 
-    "PHOTO_PRODUCT_SQUARE",
-    "END"
+    INTRO_0 = "INTRO_0",
+    INTRO_1 = "INTRO_1",
+    INTRO_2 = "INTRO_2",
+    INTRO = "INTRO",
+    PRODUCT_VIDEO = "PRODUCT_VIDEO",
+    PRODUCT_PHOTO = "PRODUCT_PHOTO",
+    VIDEO_PRODUCT_SQUARE = "VIDEO_PRODUCT_SQUARE",
+    VIDEO_PRODUCT_ROUND = "VIDEO_PRODUCT_ROUND",
+    PHOTO_PRODUCT_ROUND = "PHOTO_PRODUCT_ROUND", 
+    PHOTO_PRODUCT_SQUARE = "PHOTO_PRODUCT_SQUARE",
+    END = "END"
 }
 
 export enum ResponseId {
-    "NAME",
-    'WEIGHT', 
-    'HEIGHT',
-    "PHOTO",
-    "VIDEO",
-    "VIDEO_PRODUCT_SQUARE",
-    "VIDEO_PRODUCT_ROUND",
-    "PHOTO_PRODUCT_SQUARE",
-    "PHOTO_PRODUCT_ROUND",
-    "THANKU"
+    NAME = "NAME",
+    WEIGHT = 'WEIGHT', 
+    HEIGHT = 'HEIGHT',
+    PHOTO = "PHOTO",
+    VIDEO = "VIDEO",
+    VIDEO_PRODUCT_SQUARE = "VIDEO_PRODUCT_SQUARE",
+    VIDEO_PRODUCT_ROUND = "VIDEO_PRODUCT_ROUND",
+    PHOTO_PRODUCT_SQUARE = "PHOTO_PRODUCT_SQUARE",
+    PHOTO_PRODUCT_ROUND = "PHOTO_PRODUCT_ROUND",
+    THANKU = "THANKU"
 }
 
 export enum AdditionalContentId {
@@ -43,7 +43,7 @@ export type Response = TextResponse | NumberResponse | SingleSelectResponse;
 
 export type AdditionalContent = {
     type: 'image' | 'link' | 'youtube',
-    link: string, // this would be the youtube embedded id for youtube
+    link: string, // this would be the youtube embedded id for 'youtube' type
     alt: string,
 }
 

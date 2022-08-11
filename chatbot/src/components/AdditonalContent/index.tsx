@@ -27,6 +27,10 @@ export const AdditionalContentComponent = ({
         })
         
       );
-    return <> {renderedContent} </>;
+    return (<>
+     <div className="addtionalContentResponse"> 
+     {renderedContent} 
+     </div>
+     </>);
   };
   

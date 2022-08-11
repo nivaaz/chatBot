@@ -19,7 +19,7 @@ export const ResponseComponent = ({
   const additonalContent = responses[id].additonalContent;
   const styles = currentResponseId === id ? "selected s bubble" : "s bubble";
 
-  const [inputAns, setInputAns] = useState("");
+  const [inputAns, setInputAns] = useState<string | number>("");
 
   const submitOpenResponse = () => {
     console.log(id, inputAns);
@@ -43,9 +43,7 @@ export const ResponseComponent = ({
           <button className={styles} onClick={handleNextClick}>
             Next
             {additonalContent && (
-              <div className="addtionalContentResponse">
                 <AdditionalContentComponent contentIds={additonalContent} />
-              </div>
             )}
           </button>
         </>
@@ -54,29 +52,28 @@ export const ResponseComponent = ({
     case "NUMBER":
       return (
         <>
-          <input type="number" 
+          <input 
+            type="number" 
+            id={responses[id].specialId}
             placeholder={"enter a number"}
+            onChange={(e) => setInputAns(e.target.value)}
             />
           <button className={styles} onClick={handleNextClick}>
             Next
             {additonalContent && (
-              <div className="addtionalContentResponse">
                 <AdditionalContentComponent contentIds={additonalContent} />
-              </div>
             )}
           </button>
         </>
       );
-
-    case "SINGLE_SELECT": // 'SINGLE_SELECT'
+      
+    case "SINGLE_SELECT":
       return (
         <>
           <button className={styles} onClick={onClick}>
             {response}
             {additonalContent && (
-              <div className="addtionalContentResponse">
                 <AdditionalContentComponent contentIds={additonalContent} />
-              </div>
             )}
           </button>
         </>

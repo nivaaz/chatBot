@@ -23,8 +23,6 @@ export const ResponseComponent = ({
   const [inputAns, setInputAns] = useState<string | number>("");
 
   const submitOpenResponse = () => {
-    // console.log(id, inputAns);
-    // console.log(formstate.answers);
     formstate.setSingleAnswer(id, inputAns);
   };
   const handleNextClick = (e: any) => {

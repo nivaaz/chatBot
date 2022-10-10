@@ -1,4 +1,5 @@
 import React, { ReactElement, ReactNode, useEffect, useState } from "react";
+import { TYPING_ANIMATION_DURATION } from "../../constants";
 import { Loading } from "../Loading/loading";
 
 export const Question = (
@@ -17,7 +18,7 @@ export const Question = (
           ...showQuestions,
           questions[showQuestions.length - 1],
         ]);
-    }, questions[showQuestions.length - 1].split(' ').length*150);
+    }, questions[showQuestions.length - 1].split(' ').length*TYPING_ANIMATION_DURATION);
 
       return () => clearTimeout(x);
     }

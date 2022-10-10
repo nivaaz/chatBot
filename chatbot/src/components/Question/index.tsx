@@ -5,7 +5,7 @@ import { AdditionalContentComponent } from "../AdditonalContent";
 import { ResponseComponent } from "../Response";
 import React from "react";
 import { Question } from "./question";
-
+import { TYPING_ANIMATION_DURATION } from "../../constants";
 
 export const QuestionComponent = ({
   currentIndex,
@@ -26,7 +26,7 @@ export const QuestionComponent = ({
   const totalQuestionDelay = () =>{
     let thesum = 0;
     currentQuestionData.question.forEach(q=>{
-      thesum += q.split(' ').length*150
+      thesum += q.split(' ').length*TYPING_ANIMATION_DURATION
     })
     return thesum
   }

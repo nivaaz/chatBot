@@ -7,7 +7,7 @@ export const questions: Record<QuestionId, Question> = {
         responseOptions: [ResponseId.NAME]
     },
     [QuestionId.INTRO_1]: {
-        question: ["nice to meet you!", "To make some recommendations, we need just a little info from you", "What is your height?"],
+        question: ["nice to meet you [NAME]!", "To make some recommendations, we need just a little info from you", "What is your height?"],
         responseOptions: [ResponseId.WEIGHT]
     },
     [QuestionId.INTRO_2]: {

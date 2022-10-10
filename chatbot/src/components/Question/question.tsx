@@ -1,5 +1,7 @@
+import { formatBytes32String } from "ethers/lib/utils";
 import React, { ReactElement, ReactNode, useEffect, useState } from "react";
 import { TYPING_ANIMATION_DURATION } from "../../constants";
+import { useFormState } from "../formStates";
 import { Loading } from "../Loading/loading";
 
 export const Question = (
@@ -8,6 +10,8 @@ export const Question = (
 ): ReactElement => {
   const [showLoading, setShowLoading] = useState(true);
   const [showQuestions, setShowQuestions] = useState(['']);
+  const { answers } = useFormState();
+  const [formAnswers, setFormAnswers] = useState<any>(answers);
 
   useEffect(() => {
     if (showQuestions.length - 1 === questions.length) {
@@ -18,20 +22,32 @@ export const Question = (
           ...showQuestions,
           questions[showQuestions.length - 1],
         ]);
-    }, questions[showQuestions.length - 1].split(' ').length*TYPING_ANIMATION_DURATION);
+      }, questions[showQuestions.length - 1].split(' ').length * TYPING_ANIMATION_DURATION);
 
       return () => clearTimeout(x);
     }
+
+
   }, [showQuestions, questions]);
 
   const showAdditonalContent = additionalContent && (showQuestions.length - 1 === questions.length);
+
+  const transformQuestion = (question: string) => {
+    // sample question = 'What a nice name, [ID]' where ID is the ResponseId
+    const res = question.replace(/(^.*\[|\].*$)/g, '');
+    if (res) {
+      const val = formAnswers?.[res]
+      return question.replace(`[${res}]`,val );
+    }
+    return question
+  }
   return (
     <>
       {showQuestions.map((item) => (
         item && <div
           key={item}
           className="bubble">
-          {item}
+          {transformQuestion(item)}
         </div>
       ))}
       {showAdditonalContent &&

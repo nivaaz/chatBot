@@ -18,6 +18,13 @@
     border-radius: 2em;
     background: whitesmoke;
     font-size: 12pt;
+    margin-top:auto;
+}
+
+input{
+  padding: 1em;
+  font-size: 12pt;
+
 }
 /* responses */
 .response-container{

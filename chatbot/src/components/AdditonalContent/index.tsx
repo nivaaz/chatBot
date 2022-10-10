@@ -21,12 +21,16 @@ export const AdditionalContentComponent = ({
           } else if (type === "link") {
             return <LinkPreview url={link} height={"200px"} key={link + alt + type}/>;
           } else if (type === "youtube") {
-            return <YoutubeEmbed embedId="rokGy0huYEA" key={link + alt + type}/>;
+            return <YoutubeEmbed embedId={link} key={link + alt + type}/>;
           }
           return <> </>;
         })
         
       );
-    return <> {renderedContent} </>;
+    return (<>
+     <div className="addtionalContentResponse"> 
+     {renderedContent} 
+     </div>
+     </>);
   };
   

@@ -17,7 +17,7 @@ export const Question = (
           ...showQuestions,
           questions[showQuestions.length - 1],
         ]);
-      }, 1500);
+    }, questions[showQuestions.length - 1].split(' ').length*150);
 
       return () => clearTimeout(x);
     }

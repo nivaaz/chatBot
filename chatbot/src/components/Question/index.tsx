@@ -5,7 +5,8 @@ import { AdditionalContentComponent } from "../AdditonalContent";
 import { ResponseComponent } from "../Response";
 import React from "react";
 import { Question } from "./question";
-import { responses as fixedResponses } from "../../data/responses";
+
+
 export const QuestionComponent = ({
   currentIndex,
   id,
@@ -22,18 +23,24 @@ export const QuestionComponent = ({
   const currentQuestionData = questions[id];
   const [showResponse, setShowResponse] = useState(false);
 
+  const totalQuestionDelay = () =>{
+    let thesum = 0;
+    currentQuestionData.question.forEach(q=>{
+      thesum += q.split(' ').length*150
+    })
+    return thesum
+  }
+
   useEffect(()=>{
     scrollToBottom();
     setTimeout(() => {
       setShowResponse(true);
-    }, 1500 * currentQuestionData.question.length);
+    }, totalQuestionDelay());
   }, [currentQuestionData, scrollToBottom]);
   
   const theResponses =
     currentQuestionData.responseOptions &&
     currentQuestionData.responseOptions.map((item) => {
-      const currId = responses[currentIndex];
-      const curr = fixedResponses[currId];
       return (        
         <ResponseComponent
           id={item}

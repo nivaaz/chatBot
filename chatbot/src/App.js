@@ -11,7 +11,7 @@ function App() {
       <h2> Nivaaz has joined the chat.</h2>
         <Convo />
       <footer>
-        <p> Built by Nivaaz Sehmbhi, 2020</p>
+        <p> Built by Nivaaz S, 2022</p>
       </footer>
     </div>
   );

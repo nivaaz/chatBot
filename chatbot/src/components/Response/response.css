@@ -1,0 +1,17 @@
+.inputLabel{
+    display: flex;
+    flex-direction: column;
+    width: min-content;
+    text-align: left;
+}
+
+form{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+form p{
+    font-size: 14px;
+    color: gray;
+}

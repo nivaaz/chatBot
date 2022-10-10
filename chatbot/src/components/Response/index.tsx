@@ -4,6 +4,7 @@ import { ResponseId } from "../../data/types";
 import React from "react";
 import { AdditionalContentComponent } from "../AdditonalContent";
 import { useFormState } from "../formStates";
+import "./response.css"
 
 export const ResponseComponent = ({
   id,
@@ -22,58 +23,71 @@ export const ResponseComponent = ({
   const [inputAns, setInputAns] = useState<string | number>("");
 
   const submitOpenResponse = () => {
-    console.log(id, inputAns);
-    console.log(formstate.answers);
+    // console.log(id, inputAns);
+    // console.log(formstate.answers);
     formstate.setSingleAnswer(id, inputAns);
   };
-  const handleNextClick = () => {
+  const handleNextClick = (e: any) => {
+    e.preventDefault()
     submitOpenResponse();
     onClick();
   };
+
   switch (responses[id].responseType) {
     case "TEXT":
       return (
-        <>
-          <input
-            type="text"
-            id={responses[id].specialId}
-            onChange={(e) => setInputAns(e.target.value)}
-            placeholder={"enter text"}
-          />
-          <button className={styles} onClick={handleNextClick}>
+        <form onSubmit={handleNextClick}>
+          <label className="inputLabel">
+            <p> Type a response </p>
+            <input
+              type="text"
+              id={responses[id].specialId}
+              onChange={(e) => {
+                setInputAns(e.target.value);
+
+              }}
+              placeholder={"Enter text"}
+            />
+          </label>
+          <button
+            type="submit"
+            className={styles} onClick={handleNextClick}>
             Next
             {additonalContent && (
-                <AdditionalContentComponent contentIds={additonalContent} />
+              <AdditionalContentComponent contentIds={additonalContent} />
             )}
           </button>
-        </>
+        </form>
       );
 
     case "NUMBER":
       return (
-        <>
-          <input 
-            type="number" 
-            id={responses[id].specialId}
-            placeholder={"enter a number"}
-            onChange={(e) => setInputAns(e.target.value)}
+        <form onSubmit={handleNextClick}>
+          <label className="inputLabel">
+            <p> Type a response </p>
+            <input
+              type="number"
+              id={responses[id].specialId}
+              placeholder={"Enter a number"}
+              onChange={(e) => setInputAns(e.target.value)}
             />
-          <button className={styles} onClick={handleNextClick}>
+          </label>
+          <button type="submit" className={styles} onClick={handleNextClick}>
             Next
             {additonalContent && (
-                <AdditionalContentComponent contentIds={additonalContent} />
+              <AdditionalContentComponent contentIds={additonalContent} />
             )}
           </button>
-        </>
+        </form>
       );
-      
+
     case "SINGLE_SELECT":
       return (
         <>
           <button className={styles} onClick={onClick}>
             {response}
             {additonalContent && (
-                <AdditionalContentComponent contentIds={additonalContent} />
+              <AdditionalContentComponent contentIds={additonalContent} />
             )}
           </button>
         </>

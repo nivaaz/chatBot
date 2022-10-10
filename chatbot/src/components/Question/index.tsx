@@ -20,7 +20,6 @@ export const QuestionComponent = ({
   handleClick: (index: number, responseId: ResponseId) => void;
 }): ReactElement => {
   const currentQuestionData = questions[id];
-  let hasOpenResponse = false;
   const [showResponse, setShowResponse] = useState(false);
 
   useEffect(()=>{
@@ -33,9 +32,8 @@ export const QuestionComponent = ({
   const theResponses =
     currentQuestionData.responseOptions &&
     currentQuestionData.responseOptions.map((item) => {
-      const currid = responses[currentIndex];
-      const curr = fixedResponses[currid];
-      hasOpenResponse = curr?.responseType !== "SINGLE_SELECT";
+      const currId = responses[currentIndex];
+      const curr = fixedResponses[currId];
       return (        
         <ResponseComponent
           id={item}
@@ -66,15 +64,9 @@ export const QuestionComponent = ({
 
       <div className="response-container">
       {theResponses?.length && showResponse && <> 
-        <p>
-          {hasOpenResponse
-            ? "Type a response"
-            : "Select a response"}
-        </p>
         {theResponses}
       </>
       }
-      
       </div>
     </>
   );

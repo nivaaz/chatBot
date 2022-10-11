@@ -23,15 +23,16 @@ export const QuestionComponent = ({
   const currentQuestionData = questions[id];
   const [showResponse, setShowResponse] = useState(false);
 
-  const totalQuestionDelay = () =>{
-    let thesum = 0;
-    currentQuestionData.question.forEach(q=>{
-      thesum += q.split(' ').length*TYPING_ANIMATION_DURATION
-    })
-    return thesum
-  }
+  
 
   useEffect(()=>{
+    const totalQuestionDelay = () =>{
+      let thesum = 0;
+      currentQuestionData.question.forEach(q=>{
+        thesum += q.split(' ').length*TYPING_ANIMATION_DURATION
+      })
+      return thesum
+    }
     scrollToBottom();
     setTimeout(() => {
       setShowResponse(true);

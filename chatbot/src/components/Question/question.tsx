@@ -1,4 +1,3 @@
-import { formatBytes32String } from "ethers/lib/utils";
 import React, { ReactElement, ReactNode, useEffect, useState } from "react";
 import { TYPING_ANIMATION_DURATION } from "../../constants";
 import { useFormState } from "../formStates";
